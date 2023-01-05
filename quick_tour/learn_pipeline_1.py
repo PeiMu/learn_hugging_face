@@ -9,5 +9,6 @@ results = classifier(["We are very happy to show you the 🤗 Transformers libra
 for result in results:
     print(f"label: {result['label']}, with score: {round(result['score'], 4)}")
 
-speech_recognizer = pipeline("automatic-speech-recognition", model="facebook/wav2vec2-base-960h")
-
+ner = pipeline("ner", grouped_entities=True)
+result = ner("My name is Sylvain and I work at Hugging Face in Brooklyn.")
+print(result)
